@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>invexXo TEAM | Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #070F22;
+            --secondary: #EBEBEB;
+            --bg: #1C277B;
+            --text: #DFE7F7;
+            --accent: #FF6B00;
+            --black: #000000;
+            --white: #FFFFFF;
+            --text-dark: #070F22;
+            --transition: 0.3s ease;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            text-align: center;
+            margin-bottom: 12px;
+            color: var(--white);
+            letter-spacing: 0.06em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.05rem;
+            color: var(--secondary);
+            margin-bottom: 50px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.85;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 32px;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            transition: all var(--transition);
+            border: none;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--white);
+            box-shadow: 0 6px 24px rgba(255, 107, 0, 0.35);
+        }
+
+        .btn-accent:hover {
+            background-color: #e55e00;
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .btn-accent:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 14px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebe57;
+            box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+            transform: translateY(-3px);
+        }
+
+        .btn-whatsapp:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline:active {
+            transform: translateY(0);
+        }
+
+        /* Header / Nav */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--primary);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+            transition: background-color var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.7rem;
+            letter-spacing: 0.06em;
+            color: var(--white);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.04em;
+            color: var(--text);
+            position: relative;
+            padding: 4px 0;
+            transition: color var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .nav-mobile-toggle span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background-color: var(--white);
+            border-radius: 2px;
+            transition: all var(--transition);
+        }
+
+        .nav-mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+
+        .nav-mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        /* Hero */
+        #hero {
+            background-color: var(--black);
+            padding: 100px 0 110px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -30%;
+            width: 160%;
+            height: 160%;
+            background: radial-gradient(ellipse at center, rgba(28, 39, 123, 0.5) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        #hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(255, 107, 0, 0.15);
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            padding: 8px 18px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 107, 0, 0.35);
+        }
+
+        .hero-title {
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            color: var(--white);
+            line-height: 1.05;
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+            color: var(--secondary);
+            margin-bottom: 40px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        /* Services Section */
+        #servicios {
+            background-color: var(--bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transition: transform var(--transition), box-shadow var(--transition);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            line-height: 1;
+        }
+
+        .service-card h3 {
+            font-size: 2rem;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            max-width: 480px;
+        }
+
+        .service-card .btn {
+            margin-top: 8px;
+        }
+
+        /* Contact Section */
+        #contacto {
+            background-color: var(--primary);
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 28px 32px;
+            width: 100%;
+            border: 1px solid rgba(223, 231, 247, 0.1);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1rem;
+            color: var(--secondary);
+            word-break: break-all;
+        }
+
+        .contact-info-item svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            color: var(--accent);
+        }
+
+        .contact-social-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .contact-social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08);
+            transition: all var(--transition);
+            color: var(--text);
+        }
+
+        .contact-social-links a:hover {
+            background-color: var(--accent);
+            color: var(--white);
+            transform: translateY(-4px);
+        }
+
+        .contact-social-links svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .contact-btn-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-btn-wrapper .btn {
+            font-size: 1.1rem;
+            padding: 18px 36px;
+            gap: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050a18;
+            padding: 50px 0 30px;
+            color: var(--secondary);
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 0.06em;
+            color: var(--white);
+        }
+
+        .footer-brand span {
+            color: var(--accent);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            color: var(--secondary);
+            transition: color var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.06);
+            transition: all var(--transition);
+            color: var(--text);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--accent);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-copy {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(223, 231, 247, 0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(223, 231, 247, 0.6);
+            letter-spacing: 0.03em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 320px;
+                height: 100vh;
+                background-color: var(--primary);
+                flex-direction: column;
+                justify-content: center;
+                gap: 32px;
+                padding: 40px 30px;
+                transition: right var(--transition);
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.6);
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            .nav-mobile-toggle {
+                display: flex;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            #hero {
+                padding: 70px 0 80px;
+            }
+
+            .service-card {
+                padding: 30px 22px;
+            }
+
+            .contact-info {
+                padding: 22px 18px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                max-width: 650px;
+            }
+
+            .footer-grid {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+        }
+
+        /* Mobile nav overlay */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.55);
+            z-index: 999;
+            transition: opacity var(--transition);
+        }
+
+        .nav-overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <header>
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">invex<span>X</span>o TEAM | Academy</a>
+            <button class="nav-mobile-toggle" id="navToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#hero">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <span class="hero-badge">🚀 Academia Digital</span>
+                <h1 class="hero-title">Impulsa tu <span>negocio</span> o emprendimiento</h1>
+                <p class="hero-subtitle">Con nuestra formación en la Academia invexXo TEAM. Aprende a vender, escalar y dominar las redes sociales desde cero.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5359281541?text=Hola%2C%20vengo%20de%20la%20landing%20page%20de%20la%20Academia%20de%20invexXo%20TEAM%20y%20quiero%20unirme%20ya%21" class="btn btn-accent" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Entra en un solo toque
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Nuestra Academia</h2>
+                <p class="section-subtitle">Todo lo que necesitas para transformar tu presencia digital y multiplicar tus ventas.</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <span class="service-icon">📈</span>
+                        <h3>inevexXo TEAM | Academy</h3>
+                        <p>Somos una Academia Digital listos para convertirte en una máquina de ventas y/o ayudarte con el crecimiento de tu negocio u emprendimiento en redes sociales.</p>
+                        <a href="https://wa.me/5359281541?text=Hola%2C%20vengo%20de%20la%20landing%20page%20de%20la%20Academia%20de%20invexXo%20TEAM%20y%20quiero%20unirme%20ya%21" class="btn btn-accent" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            Accede Ya!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Contacto</h2>
+                <p class="section-subtitle">Háblanos directamente por WhatsApp. Estamos listos para ayudarte a crecer.</p>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+                            <span>invexxoteam@gmail.com</span>
+                        </div>
+                        <div class="contact-social-links">
+                            <a href="https://www.instagram.com/invexxo_team?igsh=M2E3ODJnY3A1ZXZz" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-btn-wrapper">
+                        <a href="https://wa.me/5359281541?text=Hola%2C%20vengo%20de%20la%20landing%20page%20de%20la%20Academia%20de%20invexXo%20TEAM%20y%20quiero%20unirme%20ya%21" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            Hablar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">invex<span>X</span>o TEAM | Academy</div>
+                <div class="footer-links">
+                    <a href="#hero">Inicio</a>
+                    <a href="#servicios">Servicios</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/invexxo_team?igsh=M2E3ODJnY3A1ZXZz" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <p class="footer-copy">&copy; 2026 invexXo TEAM | Academy. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            const toggle = document.getElementById('navToggle');
+            const navLinks = document.getElementById('navLinks');
+            const overlay = document.getElementById('navOverlay');
+            const navLinkItems = navLinks.querySelectorAll('a');
+
+            function openMenu() {
+                navLinks.classList.add('active');
+                overlay.classList.add('active');
+                toggle.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                navLinks.classList.remove('active');
+                overlay.classList.remove('active');
+                toggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            toggle.addEventListener('click', function() {
+                if (navLinks.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+
+            overlay.addEventListener('click', closeMenu);
+
+            navLinkItems.forEach(function(link) {
+                link.addEventListener('click', closeMenu);
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
